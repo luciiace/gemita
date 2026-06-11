@@ -663,7 +663,7 @@
         sign:     'Con todo el cariño, Tu mujer duh ❤️'
       },
       di: {
-        photo:    'diana.jpeg',
+        photo:    'diana2.jpeg',
         caption:  'Di & Gemita',
         greeting: 'Felicidades, mi cuchipú',
         body:     'Gracias por estar siempre ahí para mí, tanto en los momentos buenos como en los malos, y por demostrarme lo que es una amistad bonita de verdad. Eres una de esas personas que quieres mantener en tu vida, de las que agradeces tener y te hacen pensar qué habrás hecho bien para merecerlas.\n\n Y como Lucía me ha dicho que la carta tiene que ser corta, simplemente quiero felicitarte por tus 23, desearte todo lo mejor y decirte que espero, de todo corazón, poder seguir dándote la lata durante muchos cumpleaños más.\n\nP. D.: Prepárate para el dolor de rodillas, chavala, que con 23 ya empieza.',
@@ -809,7 +809,9 @@
       document.getElementById('modal-caption').textContent = data.caption;
 
       if (data.photo) {
+        photo.onload = null;
         photo.onerror = null;
+        photo.src = '';
         photo.style.display = 'none';
         placeholder.style.display = 'none';
         photo.onload = () => { photo.style.display = 'block'; };
