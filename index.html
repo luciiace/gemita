@@ -660,21 +660,21 @@
         caption:  'Lucia & Gemita',
         greeting: 'Mi Queridísimo Umpalumpa,',
         body:     'Puede que esto sea una ñoñada, pero sabes que estas cosas en el fondo me encantan. \nHoy es tu cumple y todos los años doy gracias a Dios por ponerte en mi camino.\nMuchas veces lo pienso y se que hoy no sería quien soy de no ser por tí, me has hecho crecer como persona y como amiga y siempre te querré por ello. \n\n Me has demostrado lo que es una verdadera "hermana de otra sangre" y me encanta, una amiga que se preocupa de la forma mas sincera por mi felicidad, que me quiere ver sonreir y que nunca me mentiría, una amiga con la que puedo contar para que me diga exactamente lo que tengo que oir, no lo que quiero oir. \n\n No puedo esperar para ver que nos depará el futuro, pero estoy tranquila porque se que sea lo que sea estarás a mi lado, y yo al tuyo, eso no va a cambiar lo prometo. Aquí estaré siempre para ti, que para eso soy tu mujer ;). \n\n Te quiero muchisimo Gemita espero que lo sepas y soy muy feliz de poder celebrar este dia a tu lado un año mas.',
-        sign:     'Con todo el cariño, Tu mujer duh♡'
+        sign:     'Con todo el cariño, Tu mujer duh ❤️'
       },
       di: {
-        photo:    null,
+        photo:    'diana.jpeg',
         caption:  'Di & Gemita',
-        greeting: 'Querida Gemita,',
-        body:     '[DI — reemplaza este texto con tu mensaje]\n\nHoy es un día muy especial y quería\nque supieras lo mucho que significas\npara mí. Eres de esas personas que\nhacen todo más bonito con su presencia.\n\nEspero que este año te traiga todo\nlo que mereces y mucho más.\n\n[termina con algo tuyo aquí]',
-        sign:     'Con mucho amor, ♡ Di'
+        greeting: 'Felicidades, mi cuchipú',
+        body:     'Gracias por estar siempre ahí para mí, tanto en los momentos buenos como en los malos, y por demostrarme lo que es una amistad bonita de verdad. Eres una de esas personas que quieres mantener en tu vida, de las que agradeces tener y te hacen pensar qué habrás hecho bien para merecerlas.\n\n Y como Lucía me ha dicho que la carta tiene que ser corta, simplemente quiero felicitarte por tus 23, desearte todo lo mejor y decirte que espero, de todo corazón, poder seguir dándote la lata durante muchos cumpleaños más.\n\nP. D.: Prepárate para el dolor de rodillas, chavala, que con 23 ya empieza.',
+        sign:     'Con cariño, Di 🩷'
       },
       chumby: {
-        photo:    null,
+        photo:    'chumby.jpeg',
         caption:  'Chumby & Gemita',
-        greeting: 'Querida Gemita,',
-        body:     '[CHUMBY — reemplaza este texto con tu mensaje]\n\nNo sé si hay palabras suficientes para\ndecirte todo lo que me alegra tenerte\ncerca. Eres especial de una manera\nque poca gente es.\n\nQue este cumpleaños sea el inicio\nde un año increíble para ti.\n\n[termina con algo tuyo aquí]',
-        sign:     'Con cariño, ♡ Chumby'
+        greeting: 'Hola Gemitaaa, feliz cumpleañosssss.',
+        body:     'Que decirte que no sepas. Eres de las personas mas importantes que tengo en mi vida. Desde que te conoci has sido de los apoyos mas fuerte que he tenido.\n\nCuando estaba en mi peor momento fuiste la persona que aguanto mis gilipolleces, mis tonterias y mis malos ratos. Siempre te estare eternamente agradecido por todo lo que has hecho por mi y espero haber hechospor ti la mitad de lo que tu haces por mi. \n\nEres una persona maravillosa y te mereces pasar tu cumpleaños con la mejor gente (nosotros). Te quiero muchisimoooooooooo.',
+        sign:     'Con cariño, Chumby 🩵'
       }
     };
 
@@ -809,9 +809,12 @@
       document.getElementById('modal-caption').textContent = data.caption;
 
       if (data.photo) {
-        photo.src = data.photo;
-        photo.style.display = 'block';
+        photo.onerror = null;
+        photo.style.display = 'none';
         placeholder.style.display = 'none';
+        photo.onload = () => { photo.style.display = 'block'; };
+        photo.onerror = () => { photo.style.display = 'none'; placeholder.style.display = 'flex'; };
+        photo.src = data.photo;
       } else {
         photo.style.display = 'none';
         placeholder.style.display = 'flex';
